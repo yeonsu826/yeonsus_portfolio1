@@ -173,6 +173,7 @@ a {
 
 a:hover {
   color: #495057;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -194,7 +195,7 @@ a:not([href]):not([tabindex]):focus {
 }
 .btn-a :hover{
   color: #495057;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 pre,
@@ -2791,6 +2792,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #ff5c31;
   border-color: #ff5224;
+
 }
 
 .btn-primary:focus, .btn-primary.focus {
