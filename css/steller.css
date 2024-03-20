@@ -5100,9 +5100,15 @@ input[type="button"].btn-block {
   justify-content: space-around;
   align-items: center;
 }
+
 .card-body img {
   width: 25%;
   height: auto;
+}
+
+.card-body img[src*="figma-logo.png"] {
+  width: auto;
+  height: 80%;
 }
 
 .card-title {
@@ -11540,11 +11546,12 @@ pre {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 0px;
+
 }
 
 .header .container .img-holder img {
@@ -11553,7 +11560,8 @@ pre {
   -webkit-filter: drop-shadow(0 -4px 20px rgba(206, 212, 218, 0.4));
           filter: drop-shadow(0 -4px 20px rgba(206, 212, 218, 0.4));
   margin-left: auto;
-  margin-right: -2rem;
+  margin-right: auto; 
+  display: flex;
 }
 
 @media (max-width: 991.98px) {
