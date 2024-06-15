@@ -192,6 +192,7 @@ a:not([href]):not([tabindex]):focus {
 
 .btn-a{
   color: #495057;
+  
 }
 .btn-a :hover{
   color: #495057;
@@ -637,8 +638,11 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  height: auto;
+  /* padding-right: 15px; */
+  /* padding-left: 15px; */
+  padding : 15px;
+  border-radius: 0.5rem;
 }
 
 .col {
@@ -11096,8 +11100,7 @@ pre {
   position: relative;
   border-radius: 0.25rem;
   overflow: hidden;
-  margin-bottom: 30px;
-  display: block;
+  margin-bottom: 15px;
   display: block;
 }
 
@@ -11508,7 +11511,7 @@ pre {
 }
 
 .header .container .infos {
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .header .container .infos .subtitle {
