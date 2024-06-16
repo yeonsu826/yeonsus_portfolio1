@@ -11567,6 +11567,19 @@ pre {
   display: flex;
 }
 
+.img-holder-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.img-holder-2 img {
+  width: 20%;
+  height: auto;
+}
+
 @media (max-width: 991.98px) {
   .header .container {
     -webkit-box-pack: center;
@@ -11671,7 +11684,7 @@ pre {
 
 .section {
   position: relative;
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 
 .section:nth-child(even) {
@@ -11691,3 +11704,4 @@ pre {
   padding: 10px;
   opacity: 0.5;
 }
+
