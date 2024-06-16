@@ -11218,7 +11218,7 @@ pre {
   color: #ff7a57;
 }
 
-.custom-card:hover, .custom-card:active {
+.custom-card:active {
   background: #ff7a57;
   color: #fff;
 }
