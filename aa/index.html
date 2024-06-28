@@ -9,16 +9,15 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
+      <div id="unity-warning"></div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">aa</div>
       </div>
@@ -94,8 +93,25 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        var aspectRatio = 1080 / 1920;
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        var newWidth, newHeight;
+
+        if (windowWidth / windowHeight > aspectRatio) {
+            newHeight = windowHeight;
+            newWidth = newHeight * aspectRatio;
+        } else {
+            newWidth = windowWidth;
+            newHeight = newWidth / aspectRatio;
+        }
+
+        container.style.width = newWidth + "px";
+        container.style.height = newHeight + "px";
+        canvas.style.width = "90%";
+        canvas.style.height = "90%";
+
+        /*960px 600px*/
       }
 
       loadingBar.style.display = "block";
