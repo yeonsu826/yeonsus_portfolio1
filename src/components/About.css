@@ -1,0 +1,165 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.about-photo {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, var(--accent-soft), transparent 60%);
+  box-shadow: var(--shadow);
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+.about-facts li {
+  padding: 16px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: center;
+}
+
+.about-facts strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.about-facts span {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.about-story {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.about-story::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.about-story-item {
+  position: relative;
+  padding: 0 0 34px 38px;
+}
+
+.about-story-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-soft);
+}
+
+.about-story-item:last-child {
+  padding-bottom: 0;
+}
+
+.about-story-period {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.about-story-item h3 {
+  font-size: 1.24rem;
+  margin: 6px 0 8px;
+}
+
+.about-story-item p {
+  color: var(--text-muted);
+  font-size: 0.97rem;
+}
+
+.about-pitch {
+  margin-top: 34px;
+  padding: 26px 28px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.about-pitch h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.about-pitch em {
+  font-style: italic;
+  color: var(--accent-2);
+}
+
+.about-pitch ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-pitch li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.about-pitch li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .about-visual {
+    max-width: 420px;
+  }
+}

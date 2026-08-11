@@ -1,0 +1,78 @@
+.contact-card {
+  position: relative;
+  padding: 72px 56px;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(90% 130% at 12% 0%, var(--accent-soft), transparent 60%),
+    var(--bg-elevated);
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: clamp(1.8rem, 4.6vw, 3rem);
+  margin: 14px 0 16px;
+}
+
+.contact-desc {
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.contact-channels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  text-align: left;
+}
+
+.contact-channels a {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: all 0.25s var(--ease);
+}
+
+.contact-channels a:hover {
+  background: var(--surface-strong);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  transform: translateY(-3px);
+}
+
+.contact-channel-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.contact-channel-value {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .contact-card {
+    padding: 48px 24px;
+  }
+}
