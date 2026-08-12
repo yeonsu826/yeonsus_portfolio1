@@ -1,14 +1,16 @@
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Float, MeshDistortMaterial } from '@react-three/drei'
+import { Float, MeshDistortMaterial, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Theme } from '../hooks/useTheme'
 
 const PARTICLE_COUNT = 1400
 const FIELD_RADIUS = 9
+const STAR_TEXTURE = `${import.meta.env.BASE_URL}imgs/star.png`
 
 function ParticleField({ theme }: { theme: Theme }) {
   const pointsRef = useRef<THREE.Points>(null)
+  const starMap = useTexture(STAR_TEXTURE)
 
   const positions = useMemo(() => {
     const array = new Float32Array(PARTICLE_COUNT * 3)
@@ -24,6 +26,11 @@ function ParticleField({ theme }: { theme: Theme }) {
     return array
   }, [])
 
+  useEffect(() => {
+    starMap.colorSpace = THREE.SRGBColorSpace
+    starMap.needsUpdate = true
+  }, [starMap])
+
   useFrame((_, delta) => {
     if (!pointsRef.current) return
     pointsRef.current.rotation.y += delta * 0.035
@@ -36,12 +43,15 @@ function ParticleField({ theme }: { theme: Theme }) {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.045}
-        color={theme === 'dark' ? '#8ea2ff' : '#5b3df5'}
+        map={starMap}
+        alphaMap={starMap}
+        size={0.14}
+        color={theme === 'dark' ? '#d4dcff' : '#6a4dff'}
         transparent
-        opacity={theme === 'dark' ? 0.85 : 0.5}
+        opacity={theme === 'dark' ? 0.95 : 0.7}
         sizeAttenuation
         depthWrite={false}
+        alphaTest={0.05}
         // 밝은 배경에서는 가산 혼합이 흰색에 묻혀 보이지 않는다.
         blending={theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending}
       />

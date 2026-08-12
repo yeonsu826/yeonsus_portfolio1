@@ -44,14 +44,6 @@ export default function Hero({ theme }: { theme: Theme }) {
           </a>
           <a
             className="btn btn-ghost"
-            href={profile.links.portfolio3d}
-            target="_blank"
-            rel="noreferrer"
-          >
-            3D 모델 뷰어
-          </a>
-          <a
-            className="btn btn-ghost"
             href={profile.links.resume}
             target="_blank"
             rel="noreferrer"
