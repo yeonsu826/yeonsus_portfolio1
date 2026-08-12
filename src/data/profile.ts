@@ -376,6 +376,22 @@ export const projects: Project[] = [
 
   // ─────────────── 웹 · 개발 ───────────────
   {
+    title: 'Kakao MCP',
+    summary:
+      '카카오 API를 Model Context Protocol(MCP)로 묶어, AI 에이전트가 카카오 기능을 도구처럼 호출할 수 있게 만든 서버입니다.',
+    category: 'web',
+    year: '2026',
+    tags: ['MCP', 'Kakao API', 'AI Agent'],
+    image: 'imgs/kakaomcp1.png',
+    fit: 'contain',
+    gallery: ['imgs/kakaomcp1.png', 'imgs/kakaomcp2.png'],
+    highlights: [
+      '카카오 기능을 MCP 도구로 노출해 AI 에이전트와 연동',
+      '실제 동작 흐름을 영상으로 시연',
+    ],
+    links: [{ label: '시연 영상', href: 'https://vimeo.com/1217508698' }],
+  },
+  {
     title: 'Unity WebGL 게임',
     summary: '유니티로 만든 게임을 웹에 올려 설치 없이 브라우저에서 바로 즐길 수 있게 했습니다.',
     category: 'web',
@@ -485,12 +501,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Game Engines',
     description: '만든 것을 엔진 위에서 실제로 돌아가게 합니다.',
-    items: ['Unity (C#)', 'Unreal Engine 5', 'Blueprints', 'Sequencer'],
-  },
-  {
-    title: 'Web & Interactive',
-    description: '브라우저에서 바로 만져볼 수 있는 3D를 만듭니다.',
-    items: ['React', 'React Three Fiber', 'Three.js', 'TypeScript'],
+    items: ['Unity (C#)', 'Unreal Engine 5', 'Sequencer'],
   },
   {
     title: 'AI & Pipeline',
