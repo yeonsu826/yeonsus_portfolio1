@@ -6,6 +6,7 @@ const CHANNELS = [
   { label: 'LinkedIn', value: 'linkedin.com/in/yeonsu0826', href: profile.links.linkedin },
   { label: 'GitHub', value: 'github.com/yeonsu826', href: profile.links.github },
   { label: 'Instagram', value: '@yeon_ddooo', href: profile.links.instagram },
+  { label: 'Resume', value: '이력서 보기', href: profile.links.resume },
 ]
 
 export default function Contact() {
@@ -20,20 +21,6 @@ export default function Contact() {
           <p className="contact-desc">
             3D 아트, 실감형 콘텐츠, 인터랙티브 웹 어느 쪽이든 좋습니다. 편하게 연락 주세요.
           </p>
-
-          <div className="contact-actions">
-            <a className="btn btn-primary" href={`mailto:${profile.links.email}`}>
-              메일 보내기
-            </a>
-            <a
-              className="btn btn-ghost"
-              href={profile.links.resume}
-              target="_blank"
-              rel="noreferrer"
-            >
-              이력서 보기
-            </a>
-          </div>
 
           <ul className="contact-channels">
             {CHANNELS.map((channel) => (

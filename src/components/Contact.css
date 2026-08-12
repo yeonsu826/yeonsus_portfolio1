@@ -18,15 +18,7 @@
 .contact-desc {
   color: var(--text-muted);
   max-width: 500px;
-  margin: 0 auto 32px;
-}
-
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 44px;
+  margin: 0 auto 36px;
 }
 
 .contact-channels {
