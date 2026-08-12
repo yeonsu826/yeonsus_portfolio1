@@ -29,14 +29,13 @@ export const profile = {
 
 /** Works 섹션의 필터 탭. id는 project.category와 연결된다. */
 export const categories = [
-  { id: 'all', label: '전체' },
   { id: 'pro', label: '실무 프로젝트' },
   { id: 'art', label: '3D 아트' },
   { id: 'xr', label: '인터랙티브 · XR' },
   { id: 'web', label: '웹 · 개발' },
 ] as const
 
-export type CategoryId = Exclude<(typeof categories)[number]['id'], 'all'>
+export type CategoryId = (typeof categories)[number]['id']
 
 export type ProjectLink = {
   label: string
@@ -64,8 +63,178 @@ export type Project = {
 /** 이전 저장소는 브라우저에서 3D 모델을 직접 돌려보는 뷰어 용도로만 연결한다. */
 const MODEL_VIEWER = 'https://yeonsu826.github.io/3d_object_portfolio_v2/'
 
+/** 시간순(오래된 → 최신). 같은 해는 아래 배열 순서를 유지한다. */
 export const projects: Project[] = [
-  // ─────────────── 실무 프로젝트 ───────────────
+  {
+    title: '초음파 지팡이',
+    summary:
+      '시각장애인을 위해 초음파 센서로 장애물을 감지하는 지팡이를 만들었습니다. 하드웨어 제작까지 마친 프로젝트입니다.',
+    category: 'web',
+    year: '2023',
+    tags: ['Arduino', '초음파 센서', '하드웨어'],
+    image: 'imgs/image.png',
+    links: [{ label: '시연 영상', href: 'https://youtu.be/r-xpDXHCEDw?feature=shared' }],
+  },
+  {
+    title: '길이 측정 웹',
+    summary: '화면 위에서 두 점을 찍어 거리를 재는 웹 도구입니다. 지금도 바로 열어볼 수 있습니다.',
+    category: 'web',
+    year: '2023',
+    tags: ['Canvas', 'JavaScript'],
+    image: 'imgs/measure_distance.png',
+    links: [{ label: '바로 실행', href: asset('measure_distance/measure_distance.html') }],
+  },
+  {
+    title: 'Unity WebGL 게임',
+    summary: '유니티로 만든 게임을 웹에 올려 설치 없이 브라우저에서 바로 즐길 수 있게 했습니다.',
+    category: 'web',
+    year: '2024',
+    tags: ['Unity', 'WebGL'],
+    image: 'imgs/simple_game.png',
+    fit: 'contain',
+    links: [{ label: '바로 실행', href: asset('aa/index.html') }],
+  },
+  {
+    title: '웹 AR 체험',
+    summary:
+      'Zappar로 만든 웹 AR입니다. 앱 설치 없이 모바일 브라우저에서 바로 증강현실을 볼 수 있습니다.',
+    category: 'xr',
+    year: '2024',
+    tags: ['Zappar', 'WebAR'],
+    image: 'imgs/ar_image.PNG',
+    links: [
+      { label: '체험하기', href: 'https://g9e77.zappar.io/3077720910295997619/0.0.1/' },
+      {
+        label: '시연 영상',
+        href: 'https://drive.google.com/file/d/1xJNYGCAKSNGhpw91HgGR-wIePO9AA2AB/view?usp=sharing',
+      },
+      {
+        label: '인스타그램 릴',
+        href: 'https://www.instagram.com/reel/C-NS8YMyVdy/',
+      },
+    ],
+  },
+  {
+    title: 'Unity 핸드 트래킹',
+    summary:
+      'MediaPipe를 유니티에 연결해 손 동작을 인식했습니다. 컨트롤러 없이 손만으로 조작하는 실험입니다.',
+    category: 'xr',
+    year: '2024',
+    tags: ['Unity', 'MediaPipe', '핸드 트래킹'],
+    image: 'imgs/mediaPipe_handtracking_image.PNG',
+    links: [
+      {
+        label: '시연 영상',
+        href: 'https://drive.google.com/file/d/1JwfYrS7Kwt5dbELj6hTJEVy0OiDwmWq9/view?usp=sharing',
+      },
+    ],
+  },
+  {
+    title: '태안 AI 교육 체험센터',
+    summary:
+      '체험센터 전체 공간을 인터랙티브하게 구성했습니다. 대형 빔 프로젝션으로 벽면을 몰입형 화면으로 만들고 여러 기기가 함께 반응하도록 현장까지 구축했습니다.',
+    category: 'pro',
+    year: '2024',
+    tags: ['Vuforia', 'AR Foundation', '프로젝션 매핑', 'Unity'],
+    image: 'imgs/dev/taean/1.jpg',
+    gallery: [
+      'imgs/dev/taean/1.jpg',
+      'imgs/dev/taean/2.jpg',
+      'imgs/dev/taean/3.jpg',
+      'imgs/dev/taean/5.jpg',
+      'imgs/dev/taean/6.jpg',
+      'imgs/dev/taean/7.jpg',
+      'imgs/dev/taean/8.jpg',
+      'imgs/dev/taean/9.jpg',
+      'imgs/dev/taean/10.jpg',
+    ],
+    highlights: [
+      '대형 빔 프로젝션 기반 몰입형 인터랙티브 월 설계',
+      'Vuforia · AR Foundation을 활용한 다중 디바이스 인터랙션 구현',
+    ],
+    links: [],
+  },
+  {
+    title: 'AR 교육 콘텐츠',
+    summary:
+      '교재와 마커를 비추면 3D 콘텐츠가 나타나는 증강현실 앱입니다. 여러 기기에서 같은 콘텐츠가 안정적으로 뜨도록 맞췄습니다.',
+    category: 'xr',
+    year: '2024',
+    tags: ['Unity', 'AR Foundation', 'Vuforia'],
+    image: 'imgs/dev/ar/3.jpg',
+    gallery: [
+      'imgs/dev/ar/1.jpg',
+      'imgs/dev/ar/2.jpg',
+      'imgs/dev/ar/3.jpg',
+      'imgs/dev/ar/4.jpg',
+      'imgs/dev/ar/5.jpg',
+      'imgs/dev/ar/6.jpg',
+      'imgs/dev/ar/7.jpg',
+      'imgs/dev/ar/8.jpg',
+      'imgs/dev/ar/9.jpg',
+    ],
+    links: [],
+  },
+  {
+    title: '모션 인식 인터랙티브 레이싱',
+    summary:
+      '몸의 움직임으로 조작하는 레이싱 게임입니다. 카메라로 인식한 모션을 조작 입력으로 바꿔 체험형 전시에 맞게 만들었습니다.',
+    category: 'xr',
+    year: '2024',
+    tags: ['Unity', 'C#', '모션 인식', '체험형 전시'],
+    image: 'imgs/dev/racing/1.jpg',
+    gallery: [
+      'imgs/dev/racing/1.jpg',
+      'imgs/dev/racing/2.jpg',
+      'imgs/dev/racing/3.jpg',
+      'imgs/dev/racing/4.jpg',
+      'imgs/dev/racing/5.jpg',
+      'imgs/dev/racing/6.jpg',
+      'imgs/dev/racing/7.jpg',
+      'imgs/dev/racing/8.jpg',
+    ],
+    links: [],
+  },
+  {
+    title: 'AI 게임 콘텐츠',
+    summary:
+      'AI를 활용한 교육용 게임을 Unity로 만들었습니다. 플레이어의 입력에 AI가 반응하며 학습 흐름을 이어 가도록 설계했습니다.',
+    category: 'xr',
+    year: '2024',
+    tags: ['Unity', 'C#', '생성형 AI', '게임 개발'],
+    image: 'imgs/dev/aigame/1.jpg',
+    gallery: [
+      'imgs/dev/aigame/1.jpg',
+      'imgs/dev/aigame/2.jpg',
+      'imgs/dev/aigame/3.jpg',
+      'imgs/dev/aigame/4.jpg',
+      'imgs/dev/aigame/5.jpg',
+      'imgs/dev/aigame/6.jpg',
+      'imgs/dev/aigame/7.jpg',
+      'imgs/dev/aigame/8.jpg',
+    ],
+    links: [],
+  },
+  {
+    title: '금산 AI 교육 체험센터',
+    summary:
+      '금산 교육청 체험센터의 지능형 미디어 파이프라인을 세팅했습니다. 촬영부터 송출까지 한 흐름으로 이어지도록 장비와 소프트웨어를 구성했습니다.',
+    category: 'pro',
+    year: '2025',
+    tags: ['미디어 파이프라인', 'Unity', '현장 구축'],
+    image: 'imgs/dev/geumsan/1.jpg',
+    gallery: [
+      'imgs/dev/geumsan/1.jpg',
+      'imgs/dev/geumsan/2.jpg',
+      'imgs/dev/geumsan/3.jpg',
+      'imgs/dev/geumsan/4.jpg',
+      'imgs/dev/geumsan/5.jpg',
+      'imgs/dev/geumsan/6.jpg',
+      'imgs/dev/geumsan/7.jpg',
+    ],
+    highlights: ['촬영 · 합성 · 송출 장비 구성과 현장 세팅 담당'],
+    links: [],
+  },
   {
     title: '생성형 AI 비디오 레터',
     summary:
@@ -88,51 +257,6 @@ export const projects: Project[] = [
       'Google STT · ElevenLabs API를 연동한 다국어 영상 제작 파이프라인 설계',
       'NVIDIA Broadcast 하드웨어 가속과 Unity 크로마키 셰이더 결합',
     ],
-    links: [],
-  },
-  {
-    title: '태안 AI 교육 체험센터',
-    summary:
-      '체험센터 전체 공간을 인터랙티브하게 구성했습니다. 대형 빔 프로젝션으로 벽면을 몰입형 화면으로 만들고 여러 기기가 함께 반응하도록 현장까지 구축했습니다.',
-    category: 'pro',
-    year: '2025',
-    tags: ['Vuforia', 'AR Foundation', '프로젝션 매핑', 'Unity'],
-    image: 'imgs/dev/taean/1.jpg',
-    gallery: [
-      'imgs/dev/taean/1.jpg',
-      'imgs/dev/taean/2.jpg',
-      'imgs/dev/taean/3.jpg',
-      'imgs/dev/taean/5.jpg',
-      'imgs/dev/taean/6.jpg',
-      'imgs/dev/taean/7.jpg',
-      'imgs/dev/taean/8.jpg',
-      'imgs/dev/taean/9.jpg',
-      'imgs/dev/taean/10.jpg',
-    ],
-    highlights: [
-      '대형 빔 프로젝션 기반 몰입형 인터랙티브 월 설계',
-      'Vuforia · AR Foundation을 활용한 다중 디바이스 인터랙션 구현',
-    ],
-    links: [],
-  },
-  {
-    title: '금산 AI 교육 체험센터',
-    summary:
-      '금산 교육청 체험센터의 지능형 미디어 파이프라인을 세팅했습니다. 촬영부터 송출까지 한 흐름으로 이어지도록 장비와 소프트웨어를 구성했습니다.',
-    category: 'pro',
-    year: '2025',
-    tags: ['미디어 파이프라인', 'Unity', '현장 구축'],
-    image: 'imgs/dev/geumsan/1.jpg',
-    gallery: [
-      'imgs/dev/geumsan/1.jpg',
-      'imgs/dev/geumsan/2.jpg',
-      'imgs/dev/geumsan/3.jpg',
-      'imgs/dev/geumsan/4.jpg',
-      'imgs/dev/geumsan/5.jpg',
-      'imgs/dev/geumsan/6.jpg',
-      'imgs/dev/geumsan/7.jpg',
-    ],
-    highlights: ['촬영 · 합성 · 송출 장비 구성과 현장 세팅 담당'],
     links: [],
   },
   {
@@ -159,14 +283,60 @@ export const projects: Project[] = [
     ],
     links: [],
   },
-
-  // ─────────────── 3D 아트 ───────────────
+  {
+    title: 'Kakao MCP',
+    summary:
+      '카카오 API를 Model Context Protocol(MCP)로 묶어, AI 에이전트가 카카오 기능을 도구처럼 호출할 수 있게 만든 서버입니다.',
+    category: 'web',
+    year: '2026',
+    tags: ['MCP', 'Kakao API', 'AI Agent'],
+    image: 'imgs/kakaomcp1.png',
+    fit: 'contain',
+    gallery: ['imgs/kakaomcp1.png', 'imgs/kakaomcp2.png'],
+    highlights: [
+      '카카오 기능을 MCP 도구로 노출해 AI 에이전트와 연동',
+      '실제 동작 흐름을 영상으로 시연',
+    ],
+    links: [{ label: '시연 영상', href: 'https://vimeo.com/1217508698' }],
+  },
+  {
+    title: '안경 프로덕트 렌더링',
+    summary:
+      '안경 세 종류를 모델링하고 재질과 조명을 다르게 잡아 제품 컷처럼 렌더링했습니다. VR 글래스까지 형태를 확장했습니다.',
+    category: 'art',
+    year: '2026',
+    tags: ['Blender', '제품 렌더링', 'PBR 텍스처링'],
+    image: 'imgs/3d/glasses/1.jpg',
+    gallery: [
+      'imgs/3d/glasses/1.jpg',
+      'imgs/3d/glasses/2.jpg',
+      'imgs/3d/glasses/3.jpg',
+      'imgs/3d/glasses/4.jpg',
+      'imgs/3d/glasses/5.jpg',
+      'imgs/3d/glasses/6.jpg',
+      'imgs/3d/glasses/14.jpg',
+      'imgs/3d/glasses/21.jpg',
+      'imgs/3d/glasses/24.jpg',
+      'imgs/3d/glasses/27.jpg',
+      'imgs/3d/models/glasses_1.jpg',
+      'imgs/3d/models/glasses_2.jpg',
+      'imgs/3d/models/glasses_3.jpg',
+    ],
+    highlights: ['기본형 · K-style · VR 글래스 3종 제작'],
+    links: [
+      {
+        label: '제작 과정',
+        href: 'https://yeonsu826.github.io/3d_object_portfolio/glasses_project/index.html',
+      },
+      { label: '3D 모델 뷰어', href: MODEL_VIEWER },
+    ],
+  },
   {
     title: '스타일라이즈드 카페 공간',
     summary:
       '카페 한 공간을 통째로 모델링했습니다. 커피머신, 그라인더, 주전자 같은 소품까지 직접 만들어 하나의 장면으로 완성했습니다.',
     category: 'art',
-    year: '2025',
+    year: '2026',
     tags: ['Blender', 'Substance Painter', 'PBR', '공간 모델링'],
     image: 'imgs/3d/cafe/0.jpg',
     gallery: [
@@ -200,43 +370,11 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: '안경 프로덕트 렌더링',
-    summary:
-      '안경 세 종류를 모델링하고 재질과 조명을 다르게 잡아 제품 컷처럼 렌더링했습니다. VR 글래스까지 형태를 확장했습니다.',
-    category: 'art',
-    year: '2025',
-    tags: ['Blender', '제품 렌더링', 'PBR 텍스처링'],
-    image: 'imgs/3d/glasses/1.jpg',
-    gallery: [
-      'imgs/3d/glasses/1.jpg',
-      'imgs/3d/glasses/2.jpg',
-      'imgs/3d/glasses/3.jpg',
-      'imgs/3d/glasses/4.jpg',
-      'imgs/3d/glasses/5.jpg',
-      'imgs/3d/glasses/6.jpg',
-      'imgs/3d/glasses/14.jpg',
-      'imgs/3d/glasses/21.jpg',
-      'imgs/3d/glasses/24.jpg',
-      'imgs/3d/glasses/27.jpg',
-      'imgs/3d/models/glasses_1.jpg',
-      'imgs/3d/models/glasses_2.jpg',
-      'imgs/3d/models/glasses_3.jpg',
-    ],
-    highlights: ['기본형 · K-style · VR 글래스 3종 제작'],
-    links: [
-      {
-        label: '제작 과정',
-        href: 'https://yeonsu826.github.io/3d_object_portfolio/glasses_project/index.html',
-      },
-      { label: '3D 모델 뷰어', href: MODEL_VIEWER },
-    ],
-  },
-  {
     title: '게이밍룸 디오라마',
     summary:
       '게이밍 룸 컨셉의 공간을 만들었습니다. 낮과 밤의 무드가 다르게 보이도록 조명을 구성하고 소품을 배치했습니다.',
     category: 'art',
-    year: '2025',
+    year: '2026',
     tags: ['Blender', '라이팅', '디오라마', '라이트 베이킹'],
     image: 'imgs/3d/gamingroom/1.jpg',
     gallery: [
@@ -258,7 +396,7 @@ export const projects: Project[] = [
     summary:
       '공연 무대를 3D로 설계했습니다. 구조물과 조명 배치를 미리 시각화해 실제 연출을 검토할 수 있게 만들었습니다.',
     category: 'art',
-    year: '2025',
+    year: '2026',
     tags: ['Blender', '무대 연출', '라이팅 설계'],
     image: 'imgs/3d/stage/2.jpg',
     gallery: [
@@ -274,151 +412,6 @@ export const projects: Project[] = [
       'imgs/3d/stage/10.jpg',
     ],
     links: [{ label: '3D 모델 뷰어', href: MODEL_VIEWER }],
-  },
-
-  // ─────────────── 인터랙티브 · XR ───────────────
-  {
-    title: 'AI 게임 콘텐츠',
-    summary:
-      'AI를 활용한 교육용 게임을 Unity로 만들었습니다. 플레이어의 입력에 AI가 반응하며 학습 흐름을 이어 가도록 설계했습니다.',
-    category: 'xr',
-    year: '2025',
-    tags: ['Unity', 'C#', '생성형 AI', '게임 개발'],
-    image: 'imgs/dev/aigame/1.jpg',
-    gallery: [
-      'imgs/dev/aigame/1.jpg',
-      'imgs/dev/aigame/2.jpg',
-      'imgs/dev/aigame/3.jpg',
-      'imgs/dev/aigame/4.jpg',
-      'imgs/dev/aigame/5.jpg',
-      'imgs/dev/aigame/6.jpg',
-      'imgs/dev/aigame/7.jpg',
-      'imgs/dev/aigame/8.jpg',
-    ],
-    links: [],
-  },
-  {
-    title: '모션 인식 인터랙티브 레이싱',
-    summary:
-      '몸의 움직임으로 조작하는 레이싱 게임입니다. 카메라로 인식한 모션을 조작 입력으로 바꿔 체험형 전시에 맞게 만들었습니다.',
-    category: 'xr',
-    year: '2024',
-    tags: ['Unity', 'C#', '모션 인식', '체험형 전시'],
-    image: 'imgs/dev/racing/1.jpg',
-    gallery: [
-      'imgs/dev/racing/1.jpg',
-      'imgs/dev/racing/2.jpg',
-      'imgs/dev/racing/3.jpg',
-      'imgs/dev/racing/4.jpg',
-      'imgs/dev/racing/5.jpg',
-      'imgs/dev/racing/6.jpg',
-      'imgs/dev/racing/7.jpg',
-      'imgs/dev/racing/8.jpg',
-    ],
-    links: [],
-  },
-  {
-    title: 'AR 교육 콘텐츠',
-    summary:
-      '교재와 마커를 비추면 3D 콘텐츠가 나타나는 증강현실 앱입니다. 여러 기기에서 같은 콘텐츠가 안정적으로 뜨도록 맞췄습니다.',
-    category: 'xr',
-    year: '2024',
-    tags: ['Unity', 'AR Foundation', 'Vuforia'],
-    image: 'imgs/dev/ar/3.jpg',
-    gallery: [
-      'imgs/dev/ar/1.jpg',
-      'imgs/dev/ar/2.jpg',
-      'imgs/dev/ar/3.jpg',
-      'imgs/dev/ar/4.jpg',
-      'imgs/dev/ar/5.jpg',
-      'imgs/dev/ar/6.jpg',
-      'imgs/dev/ar/7.jpg',
-      'imgs/dev/ar/8.jpg',
-      'imgs/dev/ar/9.jpg',
-    ],
-    links: [],
-  },
-  {
-    title: '웹 AR 체험',
-    summary:
-      'Zappar로 만든 웹 AR입니다. 앱 설치 없이 모바일 브라우저에서 바로 증강현실을 볼 수 있습니다.',
-    category: 'xr',
-    year: '2023',
-    tags: ['Zappar', 'WebAR'],
-    image: 'imgs/ar_image.PNG',
-    links: [
-      { label: '체험하기', href: 'https://g9e77.zappar.io/3077720910295997619/0.0.1/' },
-      {
-        label: '시연 영상',
-        href: 'https://drive.google.com/file/d/1xJNYGCAKSNGhpw91HgGR-wIePO9AA2AB/view?usp=sharing',
-      },
-      {
-        label: '인스타그램 릴',
-        href: 'https://www.instagram.com/reel/C-NS8YMyVdy/',
-      },
-    ],
-  },
-  {
-    title: 'Unity 핸드 트래킹',
-    summary:
-      'MediaPipe를 유니티에 연결해 손 동작을 인식했습니다. 컨트롤러 없이 손만으로 조작하는 실험입니다.',
-    category: 'xr',
-    year: '2023',
-    tags: ['Unity', 'MediaPipe', '핸드 트래킹'],
-    image: 'imgs/mediaPipe_handtracking_image.PNG',
-    links: [
-      {
-        label: '시연 영상',
-        href: 'https://drive.google.com/file/d/1JwfYrS7Kwt5dbELj6hTJEVy0OiDwmWq9/view?usp=sharing',
-      },
-    ],
-  },
-
-  // ─────────────── 웹 · 개발 ───────────────
-  {
-    title: 'Kakao MCP',
-    summary:
-      '카카오 API를 Model Context Protocol(MCP)로 묶어, AI 에이전트가 카카오 기능을 도구처럼 호출할 수 있게 만든 서버입니다.',
-    category: 'web',
-    year: '2026',
-    tags: ['MCP', 'Kakao API', 'AI Agent'],
-    image: 'imgs/kakaomcp1.png',
-    fit: 'contain',
-    gallery: ['imgs/kakaomcp1.png', 'imgs/kakaomcp2.png'],
-    highlights: [
-      '카카오 기능을 MCP 도구로 노출해 AI 에이전트와 연동',
-      '실제 동작 흐름을 영상으로 시연',
-    ],
-    links: [{ label: '시연 영상', href: 'https://vimeo.com/1217508698' }],
-  },
-  {
-    title: 'Unity WebGL 게임',
-    summary: '유니티로 만든 게임을 웹에 올려 설치 없이 브라우저에서 바로 즐길 수 있게 했습니다.',
-    category: 'web',
-    year: '2023',
-    tags: ['Unity', 'WebGL'],
-    image: 'imgs/simple_game.png',
-    fit: 'contain',
-    links: [{ label: '바로 실행', href: asset('aa/index.html') }],
-  },
-  {
-    title: '길이 측정 웹',
-    summary: '화면 위에서 두 점을 찍어 거리를 재는 웹 도구입니다. 지금도 바로 열어볼 수 있습니다.',
-    category: 'web',
-    year: '2023',
-    tags: ['Canvas', 'JavaScript'],
-    image: 'imgs/measure_distance.png',
-    links: [{ label: '바로 실행', href: asset('measure_distance/measure_distance.html') }],
-  },
-  {
-    title: '초음파 지팡이',
-    summary:
-      '시각장애인을 위해 초음파 센서로 장애물을 감지하는 지팡이를 만들었습니다. 하드웨어 제작까지 마친 프로젝트입니다.',
-    category: 'web',
-    year: '2022',
-    tags: ['Arduino', '초음파 센서', '하드웨어'],
-    image: 'imgs/image.png',
-    links: [{ label: '시연 영상', href: 'https://youtu.be/r-xpDXHCEDw?feature=shared' }],
   },
 ]
 

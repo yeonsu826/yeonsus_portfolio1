@@ -50,6 +50,79 @@
   gap: 22px;
 }
 
+/* ── Timeline (시간순) ── */
+.works-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.works-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.works-timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 0 18px;
+  align-items: start;
+  margin-bottom: 36px;
+}
+
+.works-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.works-timeline-marker {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 18px;
+  z-index: 1;
+}
+
+.works-timeline-year {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.works-timeline-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+.works-timeline-item.is-left .works-timeline-card {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.works-timeline-item.is-right .works-timeline-card {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.works-timeline-item.is-left .works-timeline-marker,
+.works-timeline-item.is-right .works-timeline-marker {
+  grid-row: 1;
+}
+
 .work-card {
   display: flex;
   flex-direction: column;
@@ -181,7 +254,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--accent-2);
+  background: var(--accent);
 }
 
 .work-body {
@@ -252,7 +325,7 @@
   font-size: 0.84rem;
   font-weight: 600;
   padding: 7px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   transition: all 0.25s var(--ease);
@@ -261,11 +334,34 @@
 .work-link:hover {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #161512;
 }
 
 .work-link span {
   font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .works-timeline::before {
+    left: 18px;
+    transform: none;
+  }
+
+  .works-timeline-item {
+    grid-template-columns: 36px 1fr;
+    gap: 0 14px;
+    margin-bottom: 28px;
+  }
+
+  .works-timeline-marker {
+    grid-column: 1;
+    padding-top: 22px;
+  }
+
+  .works-timeline-item.is-left .works-timeline-card,
+  .works-timeline-item.is-right .works-timeline-card {
+    grid-column: 2;
+  }
 }
 
 @media (max-width: 560px) {
