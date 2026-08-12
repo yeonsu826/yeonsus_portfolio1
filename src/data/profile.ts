@@ -398,6 +398,7 @@ export const projects: Project[] = [
     year: '2023',
     tags: ['Unity', 'WebGL'],
     image: 'imgs/simple_game.png',
+    fit: 'contain',
     links: [{ label: '바로 실행', href: asset('aa/index.html') }],
   },
   {
