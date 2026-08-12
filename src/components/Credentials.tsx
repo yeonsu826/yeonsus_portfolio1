@@ -10,7 +10,6 @@ export default function Credentials() {
     <section id="credentials" className="section credentials">
       <div className="container">
         <div className="section-head reveal">
-          <span className="section-label">Credentials</span>
           <h2 className="section-title">자격 · 수료</h2>
           <p className="section-desc">배운 것을 증명할 수 있는 기록들입니다.</p>
         </div>

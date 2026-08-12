@@ -61,13 +61,11 @@ export default function VideoLog() {
     <section id="videolog" className="section videolog">
       <div className="container">
         <div className="section-head reveal">
-          <span className="section-label">Video Log</span>
           <h2 className="section-title">
-            움직이는 <span className="gradient-text">장면</span>으로 보기
+            움직이는 <em className="accent-em">장면</em>으로 보기
           </h2>
           <p className="section-desc">
-            스틸 컷으로는 담기지 않는 카메라 워크와 이펙트를 영상으로 정리했습니다.
-            누르면 Vimeo에서 원본 화질로 볼 수 있습니다.
+            카메라 워크와 이펙트를 영상으로 정리했습니다. 누르면 Vimeo에서 볼 수 있습니다.
           </p>
         </div>
 

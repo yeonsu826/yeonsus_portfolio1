@@ -19,7 +19,7 @@
   top: -2px;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.45s var(--ease);

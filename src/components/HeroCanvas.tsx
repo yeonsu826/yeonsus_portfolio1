@@ -46,13 +46,12 @@ function ParticleField({ theme }: { theme: Theme }) {
         map={starMap}
         alphaMap={starMap}
         size={0.14}
-        color={theme === 'dark' ? '#d4dcff' : '#6a4dff'}
+        color={theme === 'dark' ? '#f0d7a8' : '#a56b1f'}
         transparent
-        opacity={theme === 'dark' ? 0.95 : 0.7}
+        opacity={theme === 'dark' ? 0.92 : 0.72}
         sizeAttenuation
         depthWrite={false}
         alphaTest={0.05}
-        // 밝은 배경에서는 가산 혼합이 흰색에 묻혀 보이지 않는다.
         blending={theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending}
       />
     </points>
@@ -81,23 +80,23 @@ function CoreBlob({ theme }: { theme: Theme }) {
         <mesh ref={meshRef}>
           <icosahedronGeometry args={[1, 32]} />
           <MeshDistortMaterial
-            color={theme === 'dark' ? '#5b3ce0' : '#8f79ff'}
-            emissive={theme === 'dark' ? '#1a0f4d' : '#2a1f6b'}
-            emissiveIntensity={0.55}
-            roughness={0.22}
-            metalness={0.75}
-            distort={0.42}
-            speed={1.5}
+            color={theme === 'dark' ? '#c4893a' : '#d4a05a'}
+            emissive={theme === 'dark' ? '#3a2410' : '#5a3a12'}
+            emissiveIntensity={0.42}
+            roughness={0.28}
+            metalness={0.62}
+            distort={0.38}
+            speed={1.35}
           />
         </mesh>
         {/* 같은 형태를 조금 키워 선으로 덧씌워 윤곽을 살린다. */}
         <mesh scale={1.19}>
           <icosahedronGeometry args={[1, 2]} />
           <meshBasicMaterial
-            color={theme === 'dark' ? '#7fd6ff' : '#5b3df5'}
+            color={theme === 'dark' ? '#e8c48a' : '#a56b1f'}
             wireframe
             transparent
-            opacity={theme === 'dark' ? 0.14 : 0.2}
+            opacity={theme === 'dark' ? 0.16 : 0.22}
           />
         </mesh>
       </group>
@@ -132,9 +131,9 @@ export default function HeroCanvas({ theme }: { theme: Theme }) {
       gl={{ antialias: true, alpha: true }}
       frameloop={prefersReducedMotion ? 'demand' : 'always'}
     >
-      <ambientLight intensity={theme === 'dark' ? 0.5 : 1.1} />
-      <directionalLight position={[4, 5, 6]} intensity={2.2} color="#8ef0ff" />
-      <directionalLight position={[-5, -3, 2]} intensity={1.4} color="#b47cff" />
+      <ambientLight intensity={theme === 'dark' ? 0.45 : 1.05} />
+      <directionalLight position={[4, 5, 6]} intensity={2.0} color="#ffe2b0" />
+      <directionalLight position={[-5, -3, 2]} intensity={1.15} color="#8a7a62" />
       <Suspense fallback={null}>
         <CoreBlob theme={theme} />
         <ParticleField theme={theme} />

@@ -14,9 +14,8 @@ export default function Contact() {
     <section id="contact" className="section contact">
       <div className="container">
         <div className="contact-card reveal">
-          <span className="section-label">Contact</span>
           <h2 className="contact-title">
-            함께 만들 <span className="gradient-text">공간</span>이 있나요?
+            함께 만들 <em className="accent-em">공간</em>이 있나요?
           </h2>
           <p className="contact-desc">
             3D 아트, 실감형 콘텐츠, 인터랙티브 웹 어느 쪽이든 좋습니다. 편하게 연락 주세요.

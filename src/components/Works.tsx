@@ -22,8 +22,7 @@ export default function Works() {
           <span className="section-label">Works</span>
           <h2 className="section-title">지금까지 만든 것들</h2>
           <p className="section-desc">
-            실무에서 맡은 프로젝트부터 개인 3D 작업, 웹과 인터랙티브 실험까지 모았습니다.
-            카테고리를 눌러 나눠 볼 수 있습니다.
+            실무·3D·인터랙티브·웹 작업을 모았습니다. 카테고리로 나눠 볼 수 있습니다.
           </p>
         </div>
 

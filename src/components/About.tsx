@@ -33,9 +33,8 @@ export default function About() {
     <section id="about" className="section about">
       <div className="container">
         <div className="section-head reveal">
-          <span className="section-label">About</span>
           <h2 className="section-title">
-            현실처럼 느껴지는 <span className="gradient-text">공간</span>을 만듭니다
+            현실처럼 느껴지는 <em className="accent-em">공간</em>을 만듭니다
           </h2>
           <p className="section-desc">{profile.intro}</p>
         </div>
