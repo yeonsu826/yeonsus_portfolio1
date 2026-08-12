@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Click to Measure Distance</title>
+    <link rel="stylesheet" type="text/css" href="measure_distance.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6G671P7TGT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6G671P7TGT');
+    </script>
+</head>
+
+<body>
+    <div id="text">Click Anywhere</div>
+    <div id="cursor"></div>
+    <canvas id="canvas"></canvas>
+    <div id="distance"></div>
+    <button id="reset">Reset</button>
+
+    <script src="measure_distance.js"></script>
+
+
+</body>
+
+</html>
