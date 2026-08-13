@@ -43,7 +43,8 @@ export default function Hero({ theme }: { theme: Theme }) {
       </div>
 
       <a className="hero-scroll" href="#about" aria-label="아래로 스크롤">
-        <span />
+        <span className="hero-scroll-mouse" aria-hidden="true" />
+        Scroll
       </a>
     </section>
   )

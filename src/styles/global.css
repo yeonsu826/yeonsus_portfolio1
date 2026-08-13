@@ -180,11 +180,10 @@ button {
     transition: none;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  .hero-scroll-mouse::after {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
