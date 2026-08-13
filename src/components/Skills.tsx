@@ -1,5 +1,12 @@
-import { skillGroups } from '../data/profile'
+import { asset, skillGroups } from '../data/profile'
 import './Skills.css'
+
+const TOOL_LOGOS = [
+  { name: 'Blender', src: 'imgs/icons/blender.svg' },
+  { name: 'Substance Painter', src: 'imgs/icons/substance.svg' },
+  { name: 'Unity', src: 'imgs/icons/unity.svg' },
+  { name: 'Unreal Engine', src: 'imgs/icons/unreal.svg' },
+]
 
 export default function Skills() {
   return (
@@ -10,6 +17,14 @@ export default function Skills() {
           <p className="section-desc">
             아트에서 엔진까지, 혼자 끝까지 다룰 수 있도록 갖춘 도구들입니다.
           </p>
+          <ul className="skills-logos" aria-label="주요 도구">
+            {TOOL_LOGOS.map((tool) => (
+              <li key={tool.name}>
+                <img src={asset(tool.src)} alt={tool.name} />
+                <span>{tool.name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="skills-list">

@@ -4,6 +4,43 @@
   border-top: 1px solid var(--border);
 }
 
+.skills-logos {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills-logos li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.skills-logos img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.skills-logos span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Unity · Unreal SVG는 흰색이라 라이트 모드에서 검게 반전한다. */
+:root[data-theme='light'] .skills-logos img[alt='Unity'],
+:root[data-theme='light'] .skills-logos img[alt='Unreal Engine'] {
+  filter: brightness(0);
+}
+
 .skill-row {
   display: grid;
   grid-template-columns: 64px 1fr;

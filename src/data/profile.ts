@@ -16,8 +16,6 @@ export const profile = {
     'Unity 개발자로 커리어를 시작해, 코드 너머의 시각적인 공간을 직접 만들기 위해 3D 배경 모델러로 전향했습니다. 프로그래밍을 아는 아티스트로서 엔진 최적화와 PBR 워크플로우를 이해하고, 심미성과 퍼포먼스를 함께 잡는 테크니컬 아트를 지향합니다.',
   location: 'Seoul, KR',
   links: {
-    /** 이전 저장소. 브라우저에서 3D 모델을 직접 돌려보는 뷰어로만 쓴다. */
-    portfolio3d: 'https://yeonsu826.github.io/3d_object_portfolio_v2/',
     linkedin: 'https://www.linkedin.com/in/yeonsu0826/',
     github: 'https://github.com/yeonsu826',
     instagram: 'https://www.instagram.com/yeon_ddooo/',
@@ -59,9 +57,6 @@ export type Project = {
   /** true면 "준비 중" 배지가 붙는다. 내용이 채워지면 지우면 된다. */
   draft?: boolean
 }
-
-/** 이전 저장소는 브라우저에서 3D 모델을 직접 돌려보는 뷰어 용도로만 연결한다. */
-const MODEL_VIEWER = 'https://yeonsu826.github.io/3d_object_portfolio_v2/'
 
 /** 시간순(오래된 → 최신). 같은 해는 아래 배열 순서를 유지한다. */
 export const projects: Project[] = [
@@ -107,10 +102,6 @@ export const projects: Project[] = [
       {
         label: '시연 영상',
         href: 'https://drive.google.com/file/d/1xJNYGCAKSNGhpw91HgGR-wIePO9AA2AB/view?usp=sharing',
-      },
-      {
-        label: '인스타그램 릴',
-        href: 'https://www.instagram.com/reel/C-NS8YMyVdy/',
       },
     ],
   },
@@ -257,7 +248,12 @@ export const projects: Project[] = [
       'Google STT · ElevenLabs API를 연동한 다국어 영상 제작 파이프라인 설계',
       'NVIDIA Broadcast 하드웨어 가속과 Unity 크로마키 셰이더 결합',
     ],
-    links: [],
+    links: [
+      {
+        label: '시연 영상',
+        href: 'https://drive.google.com/file/d/1lTUtNlEJCq6MeJ7NayXVOUlt3zRmcbmW/view?usp=sharing',
+      },
+    ],
   },
   {
     title: '현장 구축 작업 과정',
@@ -328,7 +324,6 @@ export const projects: Project[] = [
         label: '제작 과정',
         href: 'https://yeonsu826.github.io/3d_object_portfolio/glasses_project/index.html',
       },
-      { label: '3D 모델 뷰어', href: MODEL_VIEWER },
     ],
   },
   {
@@ -366,7 +361,6 @@ export const projects: Project[] = [
         label: '제작 과정',
         href: 'https://yeonsu826.github.io/3d_object_portfolio/cafe_project/index.html',
       },
-      { label: '3D 모델 뷰어', href: MODEL_VIEWER },
     ],
   },
   {
@@ -389,7 +383,7 @@ export const projects: Project[] = [
       'imgs/3d/gamingroom/9.jpg',
       'imgs/3d/gamingroom/10.jpg',
     ],
-    links: [{ label: '3D 모델 뷰어', href: MODEL_VIEWER }],
+    links: [],
   },
   {
     title: '무대 디자인',
@@ -411,7 +405,7 @@ export const projects: Project[] = [
       'imgs/3d/stage/9.jpg',
       'imgs/3d/stage/10.jpg',
     ],
-    links: [{ label: '3D 모델 뷰어', href: MODEL_VIEWER }],
+    links: [],
   },
 ]
 
