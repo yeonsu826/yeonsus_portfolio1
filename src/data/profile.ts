@@ -449,6 +449,12 @@ export const videos: VideoItem[] = [
     tools: ['Blender', 'Unreal Engine', 'Substance Painter'],
   },
   {
+    id: '1221433562',
+    title: '시네마틱 연출',
+    orientation: 'landscape',
+    tools: ['Unity', 'UI Particle'],
+  },
+  {
     id: '1211907156',
     title: '파티클 시스템 테스트',
     orientation: 'landscape',
@@ -464,13 +470,13 @@ export const videos: VideoItem[] = [
     id: '1211907153',
     title: '이펙트 연출 1',
     orientation: 'landscape',
-    tools: ['Unity', 'C#', 'Particle Effect'],
+    tools: ['Unity', 'C#', 'UI Particle'],
   },
   {
     id: '1211907155',
     title: '이펙트 연출 2',
     orientation: 'landscape',
-    tools: ['Unity', 'C#', 'Particle Effect'],
+    tools: ['Unity', 'C#', 'UI Particle'],
   },
 ]
 
